@@ -490,6 +490,17 @@ const formatThousandths = (_record: any, _row: any, cellValue: any) => {
   }
 }
 
+const formatOtherThousandths = (_record: any, _row: any, cellValue: any) => {
+  if (!cellValue) {
+    return
+  } else if (_record.projectName === "毛利率") {
+    return `${cellValue?.toFixed(2)}%`
+  } else {
+    return (cellValue?.toFixed(2) + "").replace(/\d{1,3}(?=(\d{3})+(\.\d*)?$)/g, "$&,")
+  }
+}
+
+
 // nre 合计
 const calculationNre = (key: string) => {
   const count = data.nre.map((item: any) => item[key]) || []
