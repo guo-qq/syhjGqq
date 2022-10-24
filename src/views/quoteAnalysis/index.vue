@@ -460,7 +460,7 @@ const formatThousandths = (_record: any, _row: any, cellValue: any) => {
 
 const formatOtherThousandths = (_record: any, _row: any, cellValue: any) => {
   if (!cellValue) {
-    return
+    return 0
   } else if (_record.projectName === "毛利率") {
     return `${cellValue?.toFixed(2)}%`
   } else {
