@@ -55,10 +55,9 @@ import { reactive, onBeforeMount, onMounted, watchEffect } from "vue"
 import { InitVersionFilterValue } from "./common/const"
 import EZFilter from "@/components/EZFilter/index.vue"
 import { GetVersionInfos, GetAllAuditFlowProjectNameAndVersion } from "./service"
-import { useRouter } from "vue-router"
+
 import { formatDateTime } from "@/utils"
 import versionDetail from "./versionDetail.vue"
-const router = useRouter()
 
 // 获取项目已有核价流程所有项目名称以及对应版本号
 const getAllAuditFlowProjectName = async () => {
@@ -141,12 +140,6 @@ const getPriceEvaluationTableList = ({ priceEvaluationTableList, quotationTable,
   data.marketingQuotationData = quotationTable
   data.auditFlowId = auditFlowId
   data.visible = true
-}
-
-const pathToOperationRecord = (AuditFlowId: number) => {
-  router.push().catch((err) => {
-    console.warn(err)
-  })
 }
 
 onBeforeMount(() => {
